@@ -1,19 +1,15 @@
 // hardcode a load of test data here
 if (Statuses.find().count() == 0)
 {
-	Statuses.insert(
-		{name: 'AndyG',
+	
+	// create some users
+	var userOneId = Meteor.users.insert({ profile: { name: 'User One' }});
+	var userOne = Meteor.users.findOne(userOneId); 
+	
+	Statuses.insert({
+		userId: userOneId._id,
+		name: userOne.profile.name,
 		status: 'Away From Desk'
-	});
-	
-	Statuses.insert(
-		{name: 'Person 2',
-		status: 'Here'
-	});
-	
-	Statuses.insert(
-		{name: 'Person 3',
-		status: 'In a meeting'
 	});
 	
 }

@@ -1,5 +1,5 @@
 Template.statusList.helpers({
 	statuses: function() {
-		return Posts.find();
+		return Statuses.find();
 	}
 });
